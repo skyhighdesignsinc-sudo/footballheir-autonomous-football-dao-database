@@ -1,0 +1,528 @@
+// Version: 1.0.0
+type APICallRecord__633803835 =
+  {
+    apiKey : Blob;
+    batchSize : Nat8;
+    consumerId : ConsumerId__28184397;
+    cost : TokenAmt__307472419;
+    id : Nat64;
+    isBatch : Bool;
+    objectTypeId : ?ObjectId__479480086;
+    status : Text;
+    timestamp : Timestamp__1060090127
+  };
+type APIConsumerV2__767452835 =
+  {
+    apiKey : Blob;
+    balance : TokenAmt__939235802;
+    batchCallCount : Nat32;
+    callCount : Nat32;
+    createdAt : Timestamp__876471016;
+    id : ConsumerId__670920279;
+    isActive : Bool;
+    lastCallAt : Timestamp__876471016;
+    owner : UserId__245176137;
+    rateLimit : Nat32;
+    tokenId : APITokenId__491130657;
+    totalDeposited : TokenAmt__939235802;
+    totalSpent : TokenAmt__939235802
+  };
+type APIConsumer__799227820 =
+  {
+    apiKey : Text;
+    createdAt : Timestamp__876471016;
+    id : ConsumerId__670920279;
+    principal : UserId__245176137;
+    requestsMade : Nat32;
+    usageLimit : Nat32
+  };
+type APIKeyMeta__134105459 =
+  {
+    apiKey : Blob;
+    consumerId : ConsumerId__28184397;
+    createdAt : Timestamp__1060090127;
+    id : Nat32;
+    isActive : Bool;
+    lastUsedAt : Timestamp__1060090127;
+    name : Text
+  };
+type APIPkgId__609141103 = Nat8;
+type APIPricePackage__646305464 =
+  {
+    batchSizeThreshold : Nat8;
+    id : APIPkgId__609141103;
+    isActive : Bool;
+    name : Text;
+    objectTypeId : ?ObjectId__742080432;
+    priceBatchCall : TokenAmt__939235802;
+    pricePerCall : TokenAmt__939235802;
+    tokenId : APITokenId__491130657
+  };
+type APITokenId__491130657 = Nat8;
+type APIToken__449276375 =
+  {
+    decimals : Nat8;
+    id : APITokenId__491130657;
+    isActive : Bool;
+    ledgerId : Principal;
+    minDeposit : TokenAmt__939235802;
+    symbol : Text
+  };
+type AttrId__985772255 = Nat32;
+type Attribute__281187565 =
+  {
+    dataType : Text;
+    defaultValue : ?Text;
+    id : AttrId__985772255;
+    isRequired : Bool;
+    name : Text
+  };
+type BackupEntry__153199920 =
+  {
+    id : BackupId__356444702;
+    objectCount : Nat32;
+    schemaBlob : Blob;
+    timestamp : Timestamp__876471016;
+    triggeredBy : Text
+  };
+type BackupId__356444702 = Nat32;
+type BlobEntry__503278469 =
+  {
+    chunkCount : Nat32;
+    id : BlobId__343693118;
+    isActive : Bool;
+    mimeType : Text;
+    name : Text;
+    sha256 : ?Blob;
+    totalSize : Nat32;
+    uploadedAt : Timestamp__876471016;
+    uploadedBy : Principal
+  };
+type BlobId__343693118 = Nat32;
+type ConsumerId__28184397 = Nat32;
+type ConsumerId__670920279 = Nat32;
+type DashId__73999641 = Nat32;
+type DashboardConfig__65043042 =
+  {
+    id : DashId__73999641;
+    layout : Text;
+    user : UserId__245176137;
+    widgets : [Text]
+  };
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type DocId__402706299 = Nat32;
+type DynamicDoc__29801862 =
+  {
+    content : Text;
+    generatedAt : Timestamp__876471016;
+    id : DocId__402706299;
+    title : Text
+  };
+type EventId__212529425 = Nat32;
+type EventLogEntry__961692737 =
+  {
+    details : Text;
+    eventType : Text;
+    hash : Blob;
+    id : EventId__212529425;
+    previousHash : ?Blob;
+    timestamp : Timestamp__876471016
+  };
+type FeedConfig__488338183 =
+  {
+    apiKeyHeader : ?Text;
+    apiKeyValue : ?Text;
+    createdBy : Principal;
+    enabled : Bool;
+    id : FeedId__373765058;
+    lastFetchAt : Nat64;
+    lastFetchStatus : Text;
+    maxResponseBytes : Nat32;
+    name : Text;
+    pollIntervalSecs : Nat64;
+    url : Text
+  };
+type FeedId__373765058 = Nat32;
+type FeedResult__970663053 =
+  {
+    bodySnippet : Text;
+    feedId : FeedId__373765058;
+    fetchedAt : Nat64;
+    fullBodyBlobId : ?BlobId__343693118;
+    responseCode : Nat16
+  };
+type ImportRecord__725475449 =
+  {
+    blobId : BlobId__343693118;
+    importedAt : Nat64;
+    importedBy : Principal;
+    proposalId : ProposalId__840837767;
+    status : Text
+  };
+type Int__270357528 = Int__616954475;
+type Int__616954475 = Int;
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type List__415060402<T> = List__790383201<T>;
+type List__790383201<T> =
+  {
+    var blockIndex : Nat__490723111;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__490723111
+  };
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type MethodDefinition__84428298 =
+  {code : Blob; description : Text; id : MethodId__498793228; name : Text};
+type MethodId__498793228 = Nat32;
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type ObjectId__479480086 = Nat32;
+type ObjectId__742080432 = Nat32;
+type ObjectType__467681086 =
+  {
+    attributes : [Attribute__281187565];
+    createdAt : Timestamp__876471016;
+    description : Text;
+    id : ObjectId__742080432;
+    methods : [MethodDefinition__84428298];
+    name : Text;
+    updatedAt : Timestamp__876471016
+  };
+type Pct__313346967 = Nat8;
+type PostId__185030858 = Nat32;
+type Post__353452120 =
+  {
+    author : UserId__245176137;
+    content : Text;
+    createdAt : Timestamp__876471016;
+    id : PostId__185030858;
+    isDeleted : Bool;
+    isPinned : Bool
+  };
+type ProposalId__840837767 = Nat32;
+type ProposalStatus__679710295 =
+  {
+    #Approved;
+    #Disputed;
+    #Executed;
+    #Finalized;
+    #Rejected;
+    #Simulated;
+    #Submitted;
+    #Voting
+  };
+type ProposalType__325530459 =
+  {
+    #AdjustRateLimit;
+    #BackupSchema;
+    #BanUser;
+    #BatchOp;
+    #ChangeGovernance;
+    #ConfigureRealTimeFeeds;
+    #DeleteAPIPrice;
+    #DeleteAttribute;
+    #DeleteDashboard;
+    #DeleteDynamicDoc;
+    #DeleteMethod;
+    #DeleteObjectType;
+    #DeletePost;
+    #DeleteTemplate;
+    #DeleteThread;
+    #DisputeProposal;
+    #EditAPIPrice;
+    #EditAttribute;
+    #EditDashboard;
+    #EditDynamicDoc;
+    #EditMethod;
+    #EditObjectType;
+    #EditTemplate;
+    #ImportSeasonData;
+    #NewAPIPrice;
+    #NewAttribute;
+    #NewDashboard;
+    #NewDataCanister;
+    #NewDynamicDoc;
+    #NewForumCanister;
+    #NewMethod;
+    #NewObjectType;
+    #NewTemplate;
+    #PinPost;
+    #RestoreSchema;
+    #SetInitialData;
+    #SimulateProposal;
+    #TreasuryAction;
+    #UnbanUser;
+    #UpdateCSS;
+    #UpdateCanister;
+    #UpdateFrontend;
+    #UpdateHTML;
+    #UpdateMotoko
+  };
+type Proposal__72871775 =
+  {
+    content : Text;
+    createdAt : Timestamp__876471016;
+    disputeWindowEnd : ?Timestamp__876471016;
+    executionResult : ?Text;
+    id : ProposalId__840837767;
+    proposalType : ProposalType__325530459;
+    proposer : UserId__245176137;
+    simulationResult : ?Text;
+    stake : TokenAmt__939235802;
+    status : ProposalStatus__679710295;
+    updatedAt : Timestamp__876471016;
+    voters : [Vote__251277178];
+    votesAgainst : Nat64;
+    votesFor : Nat64;
+    votingEndsAt : Timestamp__876471016
+  };
+type RateLimitEntry__1033419922 =
+  {callCount : Nat32; windowStart : Timestamp__876471016};
+type TemplateId__148869103 = Nat32;
+type Template__188742403 =
+  {
+    content : Text;
+    description : Text;
+    id : TemplateId__148869103;
+    name : Text
+  };
+type ThreadId__1033497346 = Nat32;
+type Thread__748882669 =
+  {
+    author : UserId__245176137;
+    createdAt : Timestamp__876471016;
+    id : ThreadId__1033497346;
+    isDeleted : Bool;
+    posts : [Post__353452120];
+    title : Text
+  };
+type Time__796480547 = Int__270357528;
+type Time__900049286 = Time__796480547;
+type TimerId__711541696 = Nat;
+type Timestamp__1060090127 = Time__900049286;
+type Timestamp__876471016 = Time__900049286;
+type TokenAmt__307472419 = Nat64;
+type TokenAmt__939235802 = Nat64;
+type UserId__245176137 = Principal;
+type UserProfile__522768002 =
+  {
+    icfcBalance : TokenAmt__939235802;
+    lastBalanceCheck : Timestamp__876471016;
+    name : Text
+  };
+type UserRole__110927300 = {#admin; #guest; #user};
+type Vote__251277178 =
+  {
+    inFavor : Bool;
+    timestamp : Timestamp__876471016;
+    voter : UserId__245176137;
+    votingPower : Nat64
+  };
+actor {
+  stable BURN_ACCOUNT : {owner : Principal; subaccount : ?Blob};
+  stable IC :
+    actor {
+      http_request :
+        shared {
+                 body : ?Blob;
+                 headers : [{name : Text; value : Text}];
+                 max_response_bytes : ?Nat64;
+                 method : {#get; #head; #post};
+                 transform :
+                   ?{
+                      context : Blob;
+                      function :
+                        shared query {
+                                       context : Blob;
+                                       response :
+                                         {
+                                           body : Blob;
+                                           headers :
+                                             [{name : Text; value : Text}];
+                                           status : Nat
+                                         }
+                                     } ->
+                          async
+                            {
+                              body : Blob;
+                              headers : [{name : Text; value : Text}];
+                              status : Nat
+                            }
+                    };
+                 url : Text
+               } ->
+          async
+            {
+              body : Blob;
+              headers : [{name : Text; value : Text}];
+              status : Nat
+            }
+    };
+  stable ICFC_LEDGER_CANISTER : Text;
+  stable MAX_CHUNK_SIZE : Nat;
+  stable var activeFrontendAssets :
+    {
+      var root : Node__46230540<Text, BlobId__343693118>;
+      var size : Nat__490723111
+    };
+  stable var activeMotokoSource :
+    {
+      var root : Node__46230540<Text, BlobId__343693118>;
+      var size : Nat__490723111
+    };
+  stable var adminAssigned : Bool;
+  stable adminRoles :
+    {
+      var root : Node__46230540<Principal, UserRole__110927300>;
+      var size : Nat__490723111
+    };
+  stable var apiCallLog :
+    {
+      var root : Node__46230540<Nat64, APICallRecord__633803835>;
+      var size : Nat__490723111
+    };
+  stable var apiConsumers :
+    {
+      var root : Node__46230540<ConsumerId__670920279, APIConsumer__799227820>;
+      var size : Nat__490723111
+    };
+  stable var apiConsumersV2 :
+    {
+      var root :
+        Node__46230540<ConsumerId__670920279, APIConsumerV2__767452835>;
+      var size : Nat__490723111
+    };
+  stable var apiKeyIndex :
+    {
+      var root : Node__46230540<Blob, ConsumerId__670920279>;
+      var size : Nat__490723111
+    };
+  stable var apiKeyNames :
+    {
+      var root : Node__46230540<Nat32, APIKeyMeta__134105459>;
+      var size : Nat__490723111
+    };
+  stable var apiPricePackages :
+    {
+      var root :
+        Node__46230540<APIPkgId__609141103, APIPricePackage__646305464>;
+      var size : Nat__490723111
+    };
+  stable var apiRateLimits :
+    {
+      var root :
+        Node__46230540<ConsumerId__670920279, RateLimitEntry__1033419922>;
+      var size : Nat__490723111
+    };
+  stable var apiTokens :
+    {
+      var root : Node__46230540<APITokenId__491130657, APIToken__449276375>;
+      var size : Nat__490723111
+    };
+  stable backupStore :
+    {
+      var root : Node__46230540<BackupId__356444702, BackupEntry__153199920>;
+      var size : Nat__490723111
+    };
+  stable var bannedUsers :
+    {var root : Node__46230540<Principal, Bool>; var size : Nat__490723111};
+  stable var blobChunks :
+    {
+      var root :
+        Node__46230540<BlobId__343693118, Map__605269027<Nat32, Blob>>;
+      var size : Nat__490723111
+    };
+  stable var blobStore :
+    {
+      var root : Node__46230540<BlobId__343693118, BlobEntry__503278469>;
+      var size : Nat__490723111
+    };
+  stable var dashboardConfigs :
+    {
+      var root : Node__46230540<DashId__73999641, DashboardConfig__65043042>;
+      var size : Nat__490723111
+    };
+  stable var dynamicDocs :
+    {
+      var root : Node__46230540<DocId__402706299, DynamicDoc__29801862>;
+      var size : Nat__490723111
+    };
+  stable var eventLog :
+    {
+      var root : Node__46230540<EventId__212529425, EventLogEntry__961692737>;
+      var size : Nat__490723111
+    };
+  stable var feedConfigs :
+    {
+      var root : Node__46230540<FeedId__373765058, FeedConfig__488338183>;
+      var size : Nat__490723111
+    };
+  stable var feedResults :
+    {
+      var root :
+        Node__46230540<FeedId__373765058,
+                        List__415060402<FeedResult__970663053>>;
+      var size : Nat__490723111
+    };
+  stable var governanceSettings :
+    {
+      autoShardingEnabled : Bool;
+      autoShardingThresholdGb : Nat32;
+      backupIntervalSecs : Nat64;
+      backupSubnetHint : Text;
+      defaultAPITokenId : APITokenId__491130657;
+      defaultRateLimitPerMin : Nat32;
+      disputeReward : Pct__313346967;
+      disputeWindow : Nat64;
+      heartbeatEnabled : Bool;
+      heartbeatIntervalSecs : Nat64;
+      minStake : TokenAmt__939235802;
+      quorum : Pct__313346967;
+      votingPeriod : Nat64;
+      vpAgeWeighting : Pct__313346967
+    };
+  stable var heartbeatTimerId : ?TimerId__711541696;
+  stable var importHistory :
+    {
+      var root : Node__46230540<Nat32, ImportRecord__725475449>;
+      var size : Nat__490723111
+    };
+  stable var lastBackupAt : Nat64;
+  stable var lastHeartbeatAt : Nat64;
+  stable var lastShardCheckAt : Nat64;
+  stable var nextBackupId : Nat32;
+  stable var nextCallLogId : Nat64;
+  stable var objectTypes :
+    {
+      var root : Node__46230540<ObjectId__742080432, ObjectType__467681086>;
+      var size : Nat__490723111
+    };
+  stable var proposals :
+    {
+      var root : Node__46230540<ProposalId__840837767, Proposal__72871775>;
+      var size : Nat__490723111
+    };
+  stable var shardProposalPending : Bool;
+  stable var templates :
+    {
+      var root : Node__46230540<TemplateId__148869103, Template__188742403>;
+      var size : Nat__490723111
+    };
+  stable var threads :
+    {
+      var root : Node__46230540<ThreadId__1033497346, Thread__748882669>;
+      var size : Nat__490723111
+    };
+  stable var userProfiles :
+    {
+      var root : Node__46230540<Principal, UserProfile__522768002>;
+      var size : Nat__490723111
+    }
+};

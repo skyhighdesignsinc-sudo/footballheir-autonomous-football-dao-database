@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.25rem; /* 4px — minimal radius per design spec */
+    --background: 0.98 0 0;
+    --foreground: 0.145 0 0;
+    --card: 1 0 0;
+    --card-foreground: 0.145 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0.145 0 0;
+    --primary: 0.55 0.18 142;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.96 0 0;
+    --secondary-foreground: 0.145 0 0;
+    --muted: 0.96 0 0;
+    --muted-foreground: 0.5 0 0;
+    --accent: 0.94 0 0;
+    --accent-foreground: 0.145 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.9 0 0;
+    --input: 0.9 0 0;
+    --ring: 0.55 0.18 142;
+    --chart-1: 0.55 0.18 142;
+    --chart-2: 0.6 0.15 220;
+    --chart-3: 0.65 0.2 85;
+    --chart-4: 0.7 0.15 30;
+    --chart-5: 0.6 0.18 280;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.55 0.18 142;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.96 0 0;
+    --sidebar-accent-foreground: 0.145 0 0;
+    --sidebar-border: 0.9 0 0;
+    --sidebar-ring: 0.55 0.18 142;
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+
+  .dark {
+    --background: 0.1 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.14 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.16 0 0;
+    --popover-foreground: 0.95 0 0;
+    --primary: 0.75 0.22 142; /* electric green — active states, voting */
+    --primary-foreground: 0.08 0 0;
+    --secondary: 0.2 0 0;
+    --secondary-foreground: 0.9 0 0;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.55 0 0;
+    --accent: 0.22 0 0;
+    --accent-foreground: 0.92 0 0;
+    --destructive: 0.6 0.22 27; /* red — burns/rejections */
+    --destructive-foreground: 0.95 0 0;
+    --border: 0.22 0 0;
+    --input: 0.22 0 0;
+    --ring: 0.75 0.22 142;
+    --chart-1: 0.75 0.22 142; /* electric green */
+    --chart-2: 0.78 0.18 85; /* gold — treasury/power */
+    --chart-3: 0.6 0.22 27; /* red */
+    --chart-4: 0.65 0.15 220; /* blue */
+    --chart-5: 0.65 0.18 280; /* purple */
+    --sidebar: 0.14 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.75 0.22 142;
+    --sidebar-primary-foreground: 0.08 0 0;
+    --sidebar-accent: 0.2 0 0;
+    --sidebar-accent-foreground: 0.9 0 0;
+    --sidebar-border: 0.22 0 0;
+    --sidebar-ring: 0.75 0.22 142;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  /* Gold accent for treasury/power elements */
+  .text-gold {
+    color: oklch(0.78 0.18 85);
+  }
+  .bg-gold {
+    background-color: oklch(0.78 0.18 85);
+  }
+  .border-gold {
+    border-color: oklch(0.78 0.18 85);
+  }
+  /* Terminal grid overlay — references primary token via CSS variable */
+  .terminal-grid {
+    background-image: linear-gradient(
+        oklch(var(--primary)) 1px,
+        transparent 1px
+      ), linear-gradient(90deg, oklch(var(--primary)) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  /* Subtle scan-line texture for terminal aesthetic */
+  .scanline {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      oklch(0 0 0 / 0.03) 2px,
+      oklch(0 0 0 / 0.03) 4px
+    );
+  }
+
+  /* Developer portal card shadow — subtle elevation for dashboard components */
+  .shadow-portal {
+    box-shadow: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px
+      oklch(0 0 0 / 0.1);
+  }
+  /* Gauge and meter styling for rate limits and usage tracking */
+  .gauge-ring {
+    stroke-dasharray: 471; /* 2πr for 75px radius */
+    stroke-dashoffset: 471;
+    transition: stroke-dashoffset 0.3s ease-out;
+  }
+  /* Chart tooltip container */
+  .chart-tooltip {
+    background: oklch(var(--card));
+    color: oklch(var(--card-foreground));
+    border: 1px solid oklch(var(--border));
+    border-radius: var(--radius);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+  }
+
+  /* Skip-to-content link */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 9999;
+    padding: 0.5rem 1rem;
+    background: oklch(var(--primary));
+    color: oklch(var(--primary-foreground));
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: top 0.1s;
+  }
+  .skip-link:focus {
+    top: 0.5rem;
+    left: 0.5rem;
+    outline: 2px solid oklch(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced motion — disable animations for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

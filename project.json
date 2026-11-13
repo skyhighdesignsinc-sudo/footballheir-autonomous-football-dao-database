@@ -1,0 +1,27 @@
+{
+  "overview": "FootballHEIR is a fully on-chain, DAO-governed football database on the Internet Computer. Every table, column, rule, page, and API endpoint is created and managed by ICFC token holders via on-chain proposals. Now includes a public documentation hub covering DAO governance, developer guides, API client onboarding, and genesis bootstrap instructions.",
+  "features": [
+    "Public documentation hub at /docs with sidebar navigation",
+    "Pre-seeded docs: ICP Coding Standards, Project Conventions, DAO Bootstrap Guide, Genesis Validation Guide",
+    "Real-time search filtering by title and content",
+    "DAO-maintained docs via #NewDynamicDoc and #EditDynamicDoc proposals",
+    "Suggest-an-edit modal for community contribution",
+    "Mobile-responsive sidebar with dark mode support",
+    "WCAG 2.1 AA accessible keyboard navigation",
+    "Full DAO governance with 33 proposal types",
+    "Pay-as-you-go API with key management and analytics",
+    "ICFC token staking, voting, and burn mechanics"
+  ],
+  "category": "productivity",
+  "tags": [
+    "football",
+    "dao",
+    "blockchain",
+    "icp",
+    "documentation",
+    "governance",
+    "api",
+    "web3"
+  ],
+  "last_updated": "2026-04-20T22:41:37.906Z"
+}
